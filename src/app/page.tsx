@@ -9,7 +9,7 @@ export default function HomePage() {
           </p>
 
           <h1 className="mt-2 text-4xl font-extrabold tracking-tight text-slate-900 md:text-5xl">
-            Make your party unforgettable 🎈
+            Make your party unforgettable
           </h1>
 
           <p className="mt-4 text-lg text-slate-600">
@@ -17,18 +17,18 @@ export default function HomePage() {
           </p>
 
           <div className="mt-6 flex flex-wrap item-center gap-4">
-            <a
+            <link
               href="/castles"
               className="rounded-lg bg-sky-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-sky-700"
             >
               Browse castles
-              </a>
-            <a
+            </link>
+            <link
               href="/#how-it-works"
               className="text-sm font-medium text-sky-700 underline-offset-4 hover:underline"
             >
               How it works
-            </a>"
+            </link>
           </div>
         </section>
 

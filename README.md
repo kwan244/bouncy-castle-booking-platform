@@ -1,5 +1,6 @@
 # Bouncy Castle Booking Platform
 A full-stack online booking system for a local bouncy castle rental business.
+
 ![CI](https://github.com/kwan244/bouncy-castle-booking-platform/actions/workflows/ci.yml/badge.svg)
 
 ## Overview
