@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function HomePage() {
   return (
     <main className="min-h-screen bg-sky-50">
@@ -16,19 +18,19 @@ export default function HomePage() {
             Browse our range of safe, fun bouncy castles and book online in a few simple steps. Perfect for birthdays, school events and more.
           </p>
 
-          <div className="mt-6 flex flex-wrap item-center gap-4">
-            <link
+          <div className="mt-6 flex flex-wrap items-center gap-4">
+            <Link
               href="/castles"
               className="rounded-lg bg-sky-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-sky-700"
             >
               Browse castles
-            </link>
-            <link
+            </Link>
+            <Link
               href="/#how-it-works"
               className="text-sm font-medium text-sky-700 underline-offset-4 hover:underline"
             >
               How it works
-            </link>
+            </Link>
           </div>
         </section>
 
