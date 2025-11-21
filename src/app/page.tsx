@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function HomePage() {
   return (
     <main className="min-h-screen bg-sky-50">
@@ -9,26 +11,26 @@ export default function HomePage() {
           </p>
 
           <h1 className="mt-2 text-4xl font-extrabold tracking-tight text-slate-900 md:text-5xl">
-            Make your party unforgettable 🎈
+            Make your party unforgettable
           </h1>
 
           <p className="mt-4 text-lg text-slate-600">
             Browse our range of safe, fun bouncy castles and book online in a few simple steps. Perfect for birthdays, school events and more.
           </p>
 
-          <div className="mt-6 flex flex-wrap item-center gap-4">
-            <a
+          <div className="mt-6 flex flex-wrap items-center gap-4">
+            <Link
               href="/castles"
               className="rounded-lg bg-sky-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-sky-700"
             >
               Browse castles
-              </a>
-            <a
+            </Link>
+            <Link
               href="/#how-it-works"
               className="text-sm font-medium text-sky-700 underline-offset-4 hover:underline"
             >
               How it works
-            </a>"
+            </Link>
           </div>
         </section>
 

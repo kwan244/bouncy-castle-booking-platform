@@ -1,28 +1,9 @@
-const mockCastles = [
-    {
-        id: "rainbow-bouncer",
-        name: "Rainbow Bouncer",
-        size: "4m x 4m x 3m",
-        ageRange: "3-10 years",
-        priceFullday: 220,
-    },
-    {
-        id: "princess-palace",
-        name: "Princess Palace",
-        size: "5m x 4m x 4m",
-        ageRange: "4-12 years",
-        priceFullday: 260,
-    },
-    {
-        id: "jungle-jump",
-        name: "Jungle Jump",
-        size: "6m x 5m x 4m",
-        ageRange: "5-12 years",
-        priceFullday: 300,
-    },
-];
+import Link from "next/link";
+import { getAllCastles } from "@/data/castles";
 
 export default function CastlesPage() {
+    const castles = getAllCastles();
+
     return (
         <main className="min-h-screen bg-sky-50">
             <div className="mx-auto max-w-5xl px-4 py-12">
@@ -34,7 +15,7 @@ export default function CastlesPage() {
                 </p>
 
                 <div className="mt-6 grid gap-6 md:grid-cols-2">
-                    {mockCastles.map((castle) => (
+                    {castles.map((castle) => (
                         <article
                             key={castle.id}
                             className="rounded-xl bg-white p-4 shadow-sm"
@@ -52,15 +33,15 @@ export default function CastlesPage() {
                             </p>
 
                             <p className="mt-3 text-base font-semibold text-sky-700">
-                                ${castle.priceFullday} / full day
+                                ${castle.pricePerDay} / full day
                             </p>
 
-                            <a
+                            <Link
                                 href={`/castles/${castle.id}`}
                                 className="mt-4 inline-block text-sm font-medium text-sky-700 underline-offset-4 hover:underline"
                             >
                                 View details
-                            </a>
+                            </Link>
                         </article>
                     ))}
                 </div>
