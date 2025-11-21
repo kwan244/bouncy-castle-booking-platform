@@ -63,7 +63,7 @@ export default async function CastleDetailPage({ params }: CastleDetailPageProps
                         </div>
 
                         <button 
-                            type = "button"
+                            type="button"
                             className="rounded-lg bg-sky-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-sky-700">
                                 Book this castle
                             </button>
