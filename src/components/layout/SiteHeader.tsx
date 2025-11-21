@@ -25,6 +25,7 @@ export function SiteHeader() {
                             <Link
                                 key={link.href}
                                 href={link.href}
+                                aria-current={isActive ? "page" : undefined}
                                 className={`transition hover:text-slate-900 ${isActive ? "text-slate-900" : ""}`}
                             >
                                 {link.label}
