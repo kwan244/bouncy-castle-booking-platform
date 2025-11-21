@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -27,7 +28,33 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <div className="flex min-h-screen flex-col bg-sky-50">
+          <header className="border-b bg-white/90 shadow-sm backdrop-blur">
+            <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-4">
+              <Link href="/" className="text-base font-semibold text-slate-900">
+                Zestopia
+              </Link>
+
+              <nav className="flex items-center gap-6 text-sm font-medium text-slate-600">
+                <Link href="/" className="transition hover:text-slate-900">
+                  Home
+                </Link>
+                <Link href="/castles" className="transition hover:text-slate-900">
+                  Castles
+                </Link>
+              </nav>
+            </div>
+          </header>
+
+          <main className="flex-1">{children}</main>
+
+          <footer className="border-t bg-white/90 text-sm text-slate-600">
+            <div className="mx-auto flex max-w-5xl flex-col gap-2 px-4 py-6 text-center sm:flex-row sm:items-center sm:justify-between sm:text-left">
+              <p className="font-medium text-slate-900">Bouncy Castle Booking Platform</p>
+              <p className="text-xs text-slate-500">© {new Date().getFullYear()} BounceTime Hire. All rights reserved.</p>
+            </div>
+          </footer>
+        </div>
       </body>
     </html>
   );
