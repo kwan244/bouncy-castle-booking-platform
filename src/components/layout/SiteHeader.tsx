@@ -14,7 +14,7 @@ export function SiteHeader() {
                     {siteConfig.name}
                 </Link>
 
-                <nav className="flex items-center gap-6 text-sm font-medium text-slate-600">
+                <nav aria-label="Main navigation" className="flex items-center gap-6 text-sm font-medium text-slate-600">
                     {siteConfig.nav.map((link) => {
                         const isActive =
                             link.href === "/"
