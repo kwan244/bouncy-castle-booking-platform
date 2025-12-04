@@ -11,11 +11,12 @@ type MongooseCache = {
     promise: Promise<Mongoose> | null;
 };
 
-let cached = (globalThis as any).mongoose as MongooseCache | undefined;
-
-if (!cached) {
-    cached = (globalThis as any).mongoose = { conn: null, promise: null };
+declare global {
+    var mongooseCache: MongooseCache | undefined;
 }
+
+const cached: MongooseCache = globalThis.mongooseCache ?? { conn: null, promise: null };
+globalThis.mongooseCache = cached;
 
 export async function connectToDatabase() {
     if (!MONGO_URI) {
@@ -32,11 +33,6 @@ export async function connectToDatabase() {
         cached.promise = mongoose.connect(uri).then((mongooseInstance) => {
             return mongooseInstance as Mongoose;
         });
-    }
-
-    if (!cached) {
-        // extra guard — ensure cache exists
-        cached = (globalThis as any).mongoose = { conn: null, promise: null };
     }
 
     cached.conn = await cached.promise;
