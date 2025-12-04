@@ -25,13 +25,13 @@ export async function connectToDatabase() {
 
     const uri = MONGO_URI; // narrowed to `string` by the check above
 
-    if (cached && cached.conn) {
+    if (cached.conn) {
         return cached.conn;
     }
 
-    if (cached && !cached.promise) {
+    if (!cached.promise) {
         cached.promise = mongoose.connect(uri).then((mongooseInstance) => {
-            return mongooseInstance as Mongoose;
+            return mongooseInstance;
         });
     }
 
