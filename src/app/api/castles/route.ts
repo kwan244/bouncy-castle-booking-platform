@@ -5,6 +5,8 @@ import BouncyCastle from "@/models/BouncyCastle";
 export async function GET() {
   try {
     await connectToDatabase();
+    // Simulate a delay for testing loading states
+    //await new Promise((r) => setTimeout(r, 1500));
     const castles = await BouncyCastle.find();
 
     return NextResponse.json(

@@ -13,6 +13,9 @@ async function getCastle(id: string): Promise<BouncyCastle | null> {
     cache: "no-store",
   });
 
+  // Simulate an error for testing the error state
+  //throw new Error("Test error");
+
   if (res.status === 404) {
     return null;
   }

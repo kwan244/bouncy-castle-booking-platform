@@ -11,6 +11,8 @@ type Params = {
 export async function GET(_: Request, { params }: Params) {
   try {
     await connectToDatabase();
+    // Simulate a delay for testing loading states
+    //await new Promise((r) => setTimeout(r, 1500));
 
     const { id } = await params;
     const castle = await BouncyCastle.findById(id);
