@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getAllCastles, getCastleById } from "@/data/castles";
+import type { BouncyCastle } from "@/types/bouncyCastle";
 
 type CastleDetailPageProps = {
   params: Promise<{
@@ -8,20 +8,27 @@ type CastleDetailPageProps = {
   }>;
 };
 
-// Pre-generate static pages for each castle
-export function generateStaticParams() {
-  const castles = getAllCastles();
+async function getCastle(id: string): Promise<BouncyCastle | null> {
+  const res = await fetch(`http://localhost:3000/api/castles/${id}`, {
+    cache: "no-store",
+  });
 
-  return castles.map((castle) => ({
-    id: castle.id,
-  }));
+  if (res.status === 404) {
+    return null;
+  }
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch castle");
+  }
+
+  return res.json();
 }
 
 export default async function CastleDetailPage({
   params,
 }: CastleDetailPageProps) {
   const { id } = await params;
-  const castle = getCastleById(id);
+  const castle = await getCastle(id);
 
   if (!castle) {
     notFound();

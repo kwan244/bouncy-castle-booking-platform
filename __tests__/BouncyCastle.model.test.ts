@@ -1,4 +1,5 @@
 import BouncyCastle from "@/models/BouncyCastle";
+import mongoose from "mongoose";
 
 describe("BouncyCastle model", () => {
   it("creates a valid bouncy castle", async () => {
@@ -33,5 +34,9 @@ describe("BouncyCastle model", () => {
         description: "Invalid price",
       }),
     ).rejects.toThrow();
+  });
+
+  afterAll(async () => {
+    await mongoose.disconnect();
   });
 });
