@@ -6,6 +6,9 @@ async function getCastles(): Promise<BouncyCastle[]> {
     cache: "no-store",
   });
 
+  // Simulate an error for testing the error state
+  //throw new Error("Test error");
+
   if (!res.ok) {
     throw new Error("Failed to fetch castles");
   }
